@@ -195,153 +195,78 @@
         }
 
         /* Section 2 Card Styles */
-        .card-container {
+        .value-card {
             position: relative;
-            width: 480px;
-            height: 480px;
-        }
-
-        .card-container .card {
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            border-radius: 30px;
-            background: #F9FAFB;
-            box-shadow: 6px 6px 12px #e6e7e9, -6px -6px 12px #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            transition: all 0.5s ease-in-out;
-            cursor: pointer;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: 160px;
+            /* 초기 높이 */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             overflow: hidden;
-        }
-
-        .card-container:hover .card:not(:hover) {
-            filter: blur(4px);
-            transform: scale(0.95);
-        }
-
-        .card-container .card:hover {
-            box-shadow: 10px 10px 18px #e6e7e9, -10px -10px 18px #ffffff;
-            z-index: 10;
-        }
-
-        .card-container .card.responsibility {
-            top: 0;
-            left: 0;
-        }
-
-        .card-container .card.trust {
-            top: 0;
-            right: 0;
-        }
-
-        .card-container .card.innovation {
-            bottom: 0;
-            left: 0;
-        }
-
-        .card-container .card.growth {
-            bottom: 0;
-            right: 0;
-        }
-
-        .card-container .card.responsibility:hover,
-        .card-container .card.innovation:hover {
-            width: 480px;
-            left: -260px;
-        }
-
-        .card-container .card.trust:hover,
-        .card-container .card.growth:hover {
-            width: 480px;
-            right: -260px;
-        }
-
-        .card-container .card-front,
-        .card-container .card-back {
-            position: absolute;
-            height: 100%;
-            transition: opacity 0.5s ease-in-out;
-            backface-visibility: hidden;
-        }
-
-        .card-container .card-front {
-            width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-        }
-
-        .card-container .card-back {
-            opacity: 0;
-            width: 480px;
-            padding: 25px;
-            box-sizing: border-box;
-            display: flex;
+            /* 수직 중앙 정렬 */
             align-items: center;
-            justify-content: center;
-            overflow: auto;
+            /* 수평 중앙 정렬 */
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
 
-        .card-container .responsibility .card-back,
-        .card-container .innovation .card-back {
-            left: 0;
+        .value-card:hover {
+            height: 245px;
+            /* 확장된 높이 수정 */
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
-        .card-container .trust .card-back,
-        .card-container .growth .card-back {
-            right: 0;
-        }
-
-        .card-container .card:hover .card-front {
-            opacity: 0;
-        }
-
-        .card-container .card:hover .card-back {
-            opacity: 1;
-        }
-
-        .card-container .card-title {
+        .value-card-title {
             font-size: 1.75rem;
             font-weight: 700;
-            color: #334155;
-            text-align: center;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
         }
 
-        .card-container .card-subtitle {
+        .value-card-subtitle {
             font-size: 1rem;
-            font-weight: 400;
-            color: #64748b;
+            font-weight: 700;
+            color: #9ca3af;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-top: 10px;
         }
 
-        .card-container .card-description {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #4A5568;
-            line-height: 1.7;
-            text-align: left;
-            width: 100%;
-            padding: 0 20px;
+        .value-card-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s 0.2s ease-in-out, margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .card-plus-icon {
+        .value-card:hover .value-card-details {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1.5rem;
+        }
+
+        .value-card-description {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.6;
+            text-align: center;
+            /* 텍스트 중앙 정렬 */
+        }
+
+        .value-card-icon {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 32px;
-            height: 32px;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 2rem;
+            height: 2rem;
             color: #9ca3af;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .card:hover .card-plus-icon {
+        .value-card:hover .value-card-icon {
             transform: rotate(135deg);
         }
 
@@ -361,7 +286,7 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transition: background-color 0.5s ease;
+            transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease;
             background-color: #F2F4F6;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
@@ -612,6 +537,7 @@
             border-radius: 20px;
             border: 3px solid #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
         }
 
         .process-title-text {
@@ -661,9 +587,16 @@
             }
 
             .step-number {
-                top: 0;
-                left: 0;
-                transform: translate(-30%, -30%);
+                display: none;
+            }
+
+            .process-title-text::before {
+                content: attr(data-step);
+                display: inline-block;
+                color: rgb(0, 86, 179);
+                font-size: 14px;
+                font-weight: 700;
+                margin-right: 8px;
             }
 
             .process-title-text {
@@ -792,78 +725,76 @@
                     <div class="text-left mb-16">
                         <p class="text-blue-900 font-bold text-lg mb-4 fade-in-up">OUR CORE VALUES</p>
                         <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 fade-in-up"
-                            style="transition-delay: 100ms;">청명기연환경의 위대한 여정, 함께할 동료를 찾습니다</h2>
+                            style="transition-delay: 100ms;">인재상: 4대 핵심가치</h2>
                         <p class="text-lg text-gray-600 fade-in-up" style="transition-delay: 200ms;">
                             청명기연환경의 가장 위대한 자산은 사람입니다. 우리는 다음과 같은 가치를 지닌 동료들과 함께 성장하고 싶습니다.
                         </p>
                     </div>
                 </div>
 
-                <div class="flex justify-center items-center mt-16">
-                    <div class="card-container">
-                        <!-- 카드 1: 책임 -->
-                        <div class="card responsibility">
-                            <div class="card-front">
-                                <svg class="card-plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
-                                <h3 class="card-title">책임</h3>
-                                <p class="card-subtitle">Responsibility</p>
-                            </div>
-                            <div class="card-back">
-                                <p class="card-description">우리는 주어진 업무를 넘어, '내 일'이라는 주인의식을 가지고 끝까지 완수하는 동료를 찾습니다. 자신의
-                                    역할이 고객의 성공과 동료의 신뢰에 직결됨을 이해하고, 결과에 대해 온전히 책임지는 태도는 청명기연환경 전문가의 가장 중요한 덕목입니다.</p>
-                            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-5xl mx-auto">
+                    <!-- 책임 (Responsibility) -->
+                    <div class="value-card">
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <div class="text-center">
+                            <h3 class="value-card-title">책임</h3>
+                            <p class="value-card-subtitle">Responsibility</p>
                         </div>
-                        <!-- 카드 2: 신뢰 -->
-                        <div class="card trust">
-                            <div class="card-front">
-                                <svg class="card-plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
-                                <h3 class="card-title">신뢰</h3>
-                                <p class="card-subtitle">Trust</p>
-                            </div>
-                            <div class="card-back">
-                                <p class="card-description">우리는 동료, 그리고 고객과 투명하게 소통하고 적극적으로 협력하여 공동의 목표를 달성합니다. 성실한 태도를
-                                    바탕으로 실력과 인품을 증명하며, 함께 일하고 싶은 동료가 되어 서로에게 긍정적인 영향을 주는 관계를 지향합니다.</p>
-                            </div>
+                        <div class="value-card-details">
+                            <p class="value-card-description">'내 일'이라는 주인의식을 가지고 끝까지 완수하는 동료를 찾습니다. 결과에 대해 온전히 책임지는 태도는
+                                청명기연환경 전문가의 가장 중요한 덕목입니다.</p>
                         </div>
-                        <!-- 카드 3: 혁신 -->
-                        <div class="card innovation">
-                            <div class="card-front">
-                                <svg class="card-plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
-                                <h3 class="card-title">혁신</h3>
-                                <p class="card-subtitle">Innovation</p>
-                            </div>
-                            <div class="card-back">
-                                <p class="card-description">우리는 기존의 방식에 안주하지 않고, '왜?'라는 질문을 통해 더 나은 방법을 찾아냅니다.
-                                    '연구지원솔루션(RSS)'과 같이, 데이터를 통해 새로운 가치를 창출하고 회사의 성장을 이끄는 모든 혁신적인 시도를 존중하고 지원합니다.</p>
-                            </div>
+                    </div>
+                    <!-- 신뢰 (Trust) -->
+                    <div class="value-card">
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <div class="text-center">
+                            <h3 class="value-card-title">신뢰</h3>
+                            <p class="value-card-subtitle">Trust</p>
                         </div>
-                        <!-- 카드 4: 성장 -->
-                        <div class="card growth">
-                            <div class="card-front">
-                                <svg class="card-plus-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
-                                <h3 class="card-title">성장</h3>
-                                <p class="card-subtitle">Growth</p>
-                            </div>
-                            <div class="card-back">
-                                <p class="card-description">우리는 자신의 분야에서 최고의 전문가가 되겠다는 열정을 가지고, 끊임없이 배우고 발전하는 동료를 찾습니다.
-                                    개인의 성장이 곧 회사의 성장이라는 믿음 아래, 구성원의 잠재력이 마음껏 발휘될 수 있도록 아낌없이 지원하는 문화를 만들어갑니다.</p>
-                            </div>
+                        <div class="value-card-details">
+                            <p class="value-card-description">투명하게 소통하고 적극적으로 협력하여 공동의 목표를 달성합니다. 성실한 태도를 바탕으로 실력과 인품을
+                                증명하며 함께 일하고 싶은 동료가 되어주세요.</p>
+                        </div>
+                    </div>
+                    <!-- 혁신 (Innovation) -->
+                    <div class="value-card">
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <div class="text-center">
+                            <h3 class="value-card-title">혁신</h3>
+                            <p class="value-card-subtitle">Innovation</p>
+                        </div>
+                        <div class="value-card-details">
+                            <p class="value-card-description">기존 방식에 안주하지 않고, '왜?'라는 질문을 통해 더 나은 방법을 찾아냅니다. 데이터를 통해 새로운
+                                가치를 창출하는 모든 혁신적인 시도를 존중하고 지원합니다.</p>
+                        </div>
+                    </div>
+                    <!-- 성장 (Growth) -->
+                    <div class="value-card">
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <div class="text-center">
+                            <h3 class="value-card-title">성장</h3>
+                            <p class="value-card-subtitle">Growth</p>
+                        </div>
+                        <div class="value-card-details">
+                            <p class="value-card-description">최고의 전문가가 되겠다는 열정으로 끊임없이 배우고 발전하는 동료를 찾습니다. 개인의 성장이 곧 회사의
+                                성장이라는 믿음 아래 아낌없이 지원합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -1009,28 +940,28 @@
                                     <i class="fas fa-file-signature"></i>
                                     <span class="step-number">STEP 01</span>
                                 </div>
-                                <h3 class="process-title-text">온라인 지원서 접수</h3>
+                                <h3 class="process-title-text" data-step="STEP 01">온라인 지원서 접수</h3>
                             </div>
                             <div class="process-step">
                                 <div class="process-icon-wrapper">
-                                    <i class="fas fa-search-plus"></i>
+                                    <i class="fas fa-file-lines"></i>
                                     <span class="step-number">STEP 02</span>
                                 </div>
-                                <h3 class="process-title-text">1차 서류전형</h3>
+                                <h3 class="process-title-text" data-step="STEP 02">1차 서류전형</h3>
                             </div>
                             <div class="process-step">
                                 <div class="process-icon-wrapper">
                                     <i class="fas fa-users"></i>
                                     <span class="step-number">STEP 03</span>
                                 </div>
-                                <h3 class="process-title-text">2차 면접</h3>
+                                <h3 class="process-title-text" data-step="STEP 03">2차 면접</h3>
                             </div>
                             <div class="process-step">
                                 <div class="process-icon-wrapper">
-                                    <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-bullhorn"></i>
                                     <span class="step-number">STEP 04</span>
                                 </div>
-                                <h3 class="process-title-text">합격자 발표</h3>
+                                <h3 class="process-title-text" data-step="STEP 04">합격자 발표</h3>
                             </div>
                         </div>
                     </div>
@@ -1050,7 +981,8 @@
 
     <footer class="bg-gray-800 text-white py-12">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p>&copy; 2025 Cheongmyeong Environmental Eng_황연걸. Co., Ltd. All Rights Reserved.</p>
+            <p>&copy; 2024 Cheongmyeong Environmental Eng. Co., Ltd. All Rights Reserved.</p>
+            <p class="text-gray-400 text-sm mt-2">본 페이지는 실제 채용 공고가 아니며, 데모 목적으로 제작되었습니다.</p>
         </div>
     </footer>
 
@@ -1100,5 +1032,10 @@
     </script>
 
 </body>
+
+</html>
+
+</body>
+
 
 </html>
