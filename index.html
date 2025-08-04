@@ -215,7 +215,7 @@
         }
 
         .value-card:hover {
-            height: 245px;
+            height: 280px;
             /* 확장된 높이 수정 */
             box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
@@ -256,18 +256,8 @@
             /* 텍스트 중앙 정렬 */
         }
 
-        .value-card-icon {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 2rem;
-            height: 2rem;
-            color: #9ca3af;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .value-card:hover .value-card-icon {
-            transform: rotate(135deg);
+        .value-card .icon-dark-blue {
+            filter: invert(11%) sepia(31%) saturate(5745%) hue-rotate(211deg) brightness(96%) contrast(101%);
         }
 
         /* Section 3 Card Styles */
@@ -514,14 +504,28 @@
             box-shadow: 0 0 0 6px #E8F0FE;
         }
 
+        .process-icon-wrapper i,
+        .process-icon-img {
+            transition: all 0.3s ease;
+        }
+
         .process-icon-wrapper i {
             font-size: 40px;
             color: #ffffff;
-            transition: color 0.3s ease;
+        }
+
+        .process-icon-img {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) invert(1);
         }
 
         .process-step:hover .process-icon-wrapper i {
             color: rgb(0, 86, 179);
+        }
+
+        .process-step:hover .process-icon-img {
+            filter: none;
         }
 
         .step-number {
@@ -582,7 +586,10 @@
                 flex-shrink: 0;
             }
 
-            .process-icon-wrapper i {
+            .process-icon-wrapper i,
+            .process-icon-img {
+                width: 30px;
+                height: 30px;
                 font-size: 30px;
             }
 
@@ -735,14 +742,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-5xl mx-auto">
                     <!-- 책임 (Responsibility) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <div class="text-center">
-                            <h3 class="value-card-title">책임</h3>
-                            <p class="value-card-subtitle">Responsibility</p>
+                        <div class="flex items-center">
+                            <img src="https://i.imgur.com/NiMmbRw.png" alt="책임 아이콘"
+                                class="w-12 h-12 mr-4 shrink-0 icon-dark-blue"
+                                onerror="this.onerror=null;this.src='https://placehold.co/48x48/e2e8f0/475569?text=Icon';">
+                            <div class="text-left">
+                                <h3 class="value-card-title">책임</h3>
+                                <p class="value-card-subtitle">Responsibility</p>
+                            </div>
                         </div>
                         <div class="value-card-details">
                             <p class="value-card-description">'내 일'이라는 주인의식을 가지고 끝까지 완수하는 동료를 찾습니다. 결과에 대해 온전히 책임지는 태도는
@@ -751,14 +758,14 @@
                     </div>
                     <!-- 신뢰 (Trust) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <div class="text-center">
-                            <h3 class="value-card-title">신뢰</h3>
-                            <p class="value-card-subtitle">Trust</p>
+                        <div class="flex items-center">
+                            <img src="https://i.imgur.com/5dp4NW9.png" alt="신뢰 아이콘"
+                                class="w-12 h-12 mr-4 shrink-0 icon-dark-blue"
+                                onerror="this.onerror=null;this.src='https://placehold.co/48x48/e2e8f0/475569?text=Icon';">
+                            <div class="text-left">
+                                <h3 class="value-card-title">신뢰</h3>
+                                <p class="value-card-subtitle">Trust</p>
+                            </div>
                         </div>
                         <div class="value-card-details">
                             <p class="value-card-description">투명하게 소통하고 적극적으로 협력하여 공동의 목표를 달성합니다. 성실한 태도를 바탕으로 실력과 인품을
@@ -767,14 +774,14 @@
                     </div>
                     <!-- 혁신 (Innovation) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <div class="text-center">
-                            <h3 class="value-card-title">혁신</h3>
-                            <p class="value-card-subtitle">Innovation</p>
+                        <div class="flex items-center">
+                            <img src="https://i.imgur.com/TXp7aD6.png" alt="혁신 아이콘"
+                                class="w-12 h-12 mr-4 shrink-0 icon-dark-blue"
+                                onerror="this.onerror=null;this.src='https://placehold.co/48x48/e2e8f0/475569?text=Icon';">
+                            <div class="text-left">
+                                <h3 class="value-card-title">혁신</h3>
+                                <p class="value-card-subtitle">Innovation</p>
+                            </div>
                         </div>
                         <div class="value-card-details">
                             <p class="value-card-description">기존 방식에 안주하지 않고, '왜?'라는 질문을 통해 더 나은 방법을 찾아냅니다. 데이터를 통해 새로운
@@ -783,14 +790,14 @@
                     </div>
                     <!-- 성장 (Growth) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <div class="text-center">
-                            <h3 class="value-card-title">성장</h3>
-                            <p class="value-card-subtitle">Growth</p>
+                        <div class="flex items-center">
+                            <img src="https://i.imgur.com/PnVzgaG.png" alt="성장 아이콘"
+                                class="w-12 h-12 mr-4 shrink-0 icon-dark-blue"
+                                onerror="this.onerror=null;this.src='https://placehold.co/48x48/e2e8f0/475569?text=Icon';">
+                            <div class="text-left">
+                                <h3 class="value-card-title">성장</h3>
+                                <p class="value-card-subtitle">Growth</p>
+                            </div>
                         </div>
                         <div class="value-card-details">
                             <p class="value-card-description">최고의 전문가가 되겠다는 열정으로 끊임없이 배우고 발전하는 동료를 찾습니다. 개인의 성장이 곧 회사의
