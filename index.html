@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,44 +9,36 @@
     <!-- Google Fonts: Noto Sans KR, Montserrat, Open Sans, Pretendard -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Open+Sans:wght@700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <!-- Font Awesome CDN for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Pretendard 폰트 우선 적용 */
         body {
             font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-            background-color: #F9FAFB;
+            background-color: #F9FAFB; 
         }
-
         /* 섹션별 부드러운 스크롤 효과 */
         html {
             scroll-behavior: smooth;
         }
-
         /* 애니메이션 효과를 위한 기본 클래스 */
         .fade-in-up {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         /* 비디오 배경 스타일 */
         .video-background-container {
             position: relative;
             height: 45vh;
             overflow: hidden;
         }
-
         .video-background {
             position: absolute;
             top: 50%;
@@ -58,7 +49,6 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
-
         .video-overlay {
             position: absolute;
             top: 0;
@@ -68,23 +58,20 @@
             background-color: rgba(0, 0, 0, 0.4);
             z-index: 2;
         }
-
         .video-text-content {
             position: relative;
             z-index: 3;
             height: 100%;
         }
-
         /* 커스텀 버튼 스타일 */
         .btn-custom {
             background-color: rgb(0, 68, 170);
             transition: background-color 0.3s;
         }
-
         .btn-custom:hover {
             background-color: rgb(0, 51, 128);
         }
-
+        
         /* Organic Blob Animation */
         .blob-animation {
             position: absolute;
@@ -100,99 +87,23 @@
         }
 
         @keyframes morph {
-            0% {
-                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-                transform: translateY(20px) rotate(0deg);
-            }
-
-            50% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-                transform: translateY(-20px) rotate(180deg) scale(1.1);
-            }
-
-            100% {
-                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-                transform: translateY(20px) rotate(360deg);
-            }
+            0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: translateY(20px) rotate(0deg); }
+            50% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translateY(-20px) rotate(180deg) scale(1.1); }
+            100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; transform: translateY(20px) rotate(360deg); }
         }
 
         /* Section 1 Card Styles */
-        .cards-section1 {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .cards-section1 {
-                flex-direction: row;
-            }
-        }
-
-        .cards-section1 .card {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-direction: column;
-            text-align: center;
-            min-height: 220px;
-            flex: 1;
-            border-radius: 20px;
-            background: #FFFFFF;
-            color: #374151;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            padding: 2.5rem 1.5rem;
-            box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
-        }
-
-        .cards-section1 .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 12px 12px 24px #d1d9e6, -12px -12px 24px #ffffff;
-        }
-
-        .cards-section1 .card p.tip {
-            font-size: 1.25em;
-            font-weight: 700;
-            color: #1f2937;
-        }
-
-        .cards-section1 .card p.tip span {
-            position: relative;
-            display: inline-block;
-            z-index: 1;
-        }
-
-        .cards-section1 .card p.second-text {
-            font-size: 1em;
-            margin-top: 1.5rem;
-            color: #4b5563;
-        }
-
-        .cards-section1 .card p.tip span::after {
-            content: '';
-            position: absolute;
-            width: calc(100% + 12px);
-            height: 30%;
-            left: -6px;
-            bottom: 0px;
-            z-index: -1;
-            border-radius: 4px;
-            opacity: 0.6;
-            transform: skewX(-12deg);
-        }
-
-        .cards-section1 .card .highlight-orange::after {
-            background-color: #FFAB40;
-        }
-
-        .cards-section1 .card .highlight-brown::after {
-            background-color: rgb(137, 71, 17);
-        }
-
-        .cards-section1 .card .highlight-red::after {
-            background-color: #FF5252;
-        }
+        .cards-section1 { display: flex; flex-direction: column; gap: 2rem; }
+        @media (min-width: 768px) { .cards-section1 { flex-direction: row; } }
+        .cards-section1 .card { display: flex; align-items: center; justify-content: flex-start; flex-direction: column; text-align: center; min-height: 220px; flex: 1; border-radius: 20px; background: #FFFFFF; color: #374151; cursor: pointer; transition: all 0.3s ease-in-out; padding: 2.5rem 1.5rem; box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff; }
+        .cards-section1 .card:hover { transform: translateY(-5px); box-shadow: 12px 12px 24px #d1d9e6, -12px -12px 24px #ffffff; }
+        .cards-section1 .card p.tip { font-size: 1.25em; font-weight: 700; color: #1f2937; }
+        .cards-section1 .card p.tip span { position: relative; display: inline-block; z-index: 1; }
+        .cards-section1 .card p.second-text { font-size: 1em; margin-top: 1.5rem; color: #4b5563; }
+        .cards-section1 .card p.tip span::after { content: ''; position: absolute; width: calc(100% + 12px); height: 30%; left: -6px; bottom: 0px; z-index: -1; border-radius: 4px; opacity: 0.6; transform: skewX(-12deg); }
+        .cards-section1 .card .highlight-orange::after { background-color: #FFAB40; }
+        .cards-section1 .card .highlight-brown::after { background-color: rgb(137, 71, 17); }
+        .cards-section1 .card .highlight-red::after { background-color: #FF5252; }
 
         /* Section 2 Card Styles */
         .value-card {
@@ -200,33 +111,26 @@
             background-color: #FFFFFF;
             border-radius: 20px;
             padding: 2.5rem;
-            height: 160px;
-            /* 초기 높이 */
+            height: 160px; /* 초기 높이 */
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            /* 수직 중앙 정렬 */
-            align-items: center;
-            /* 수평 중앙 정렬 */
+            justify-content: center; /* 수직 중앙 정렬 */
+            align-items: center; /* 수평 중앙 정렬 */
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
-
         .value-card:hover {
-            height: 280px;
-            /* 확장된 높이 수정 */
+            height: 245px; /* 확장된 높이 수정 */
             box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
-
         .value-card-title {
             font-size: 1.75rem;
             font-weight: 700;
             color: #1f2937;
             margin-bottom: 0.25rem;
         }
-
         .value-card-subtitle {
             font-size: 1rem;
             font-weight: 700;
@@ -234,28 +138,23 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
-
         .value-card-details {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s 0.2s ease-in-out, margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .value-card:hover .value-card-details {
             max-height: 500px;
             opacity: 1;
             margin-top: 1.5rem;
         }
-
         .value-card-description {
             font-size: 1rem;
             color: #4b5563;
             line-height: 1.6;
-            text-align: center;
-            /* 텍스트 중앙 정렬 */
+            text-align: center; /* 텍스트 중앙 정렬 */
         }
-
         .value-card-icon {
             position: absolute;
             top: 1.5rem;
@@ -265,362 +164,52 @@
             color: #9ca3af;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .value-card:hover .value-card-icon {
             transform: rotate(135deg);
         }
 
         /* Section 3 Card Styles */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            width: 100%;
-        }
-
-        .toss-card {
-            background-color: #fff;
-            border-radius: 20px;
-            padding: 48px;
-            height: 420px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease;
-            background-color: #F2F4F6;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .card-bg-image,
-        .card-bg-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease-out, opacity 0.5s ease;
-            z-index: 1;
-        }
-
-        .toss-card:not(.active):hover .card-bg-image,
-        .toss-card:not(.active):hover .card-bg-video {
-            transform: scale(1.03);
-        }
-
-        .card-has-media::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0) 70%);
-            z-index: 2;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        .toss-card.active.card-has-media::after {
-            opacity: 0;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card-title {
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 1.4;
-            color: #191f28;
-            transition: color 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        .card-has-media .card-title {
-            color: #ffffff;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 0 2px rgba(0, 0, 0, 0.6);
-        }
-
-        .card-subtitle {
-            font-size: 18px;
-            font-weight: 500;
-            color: #5b6776;
-            margin-top: 4px;
-            transition: color 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        .card-has-media .card-subtitle {
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8), 0 0 2px rgba(0, 0, 0, 0.6);
-        }
-
-        .toggle-icon {
-            width: auto;
-            height: 40px;
-            border-radius: 20px;
-            padding: 0 18px;
-            background-color: rgba(0, 0, 0, 0.4);
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.4s ease, border-color 0.4s ease;
-            margin-top: auto;
-            color: #fff;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: -0.3px;
-            align-self: flex-start;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-        }
-
-        .toggle-icon .text-close {
-            display: none;
-        }
-
-        .card-details {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.5s;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #4e5968;
-        }
-
-        .card-details p {
-            margin-bottom: 1.5em;
-        }
-
-        .card-details p:last-child {
-            margin-bottom: 0;
-        }
-
-        .card-details strong {
-            color: #333d4b;
-        }
-
-        .toss-card.active {
-            height: auto;
-            background-color: #ffffff;
-        }
-
-        .toss-card.active .card-bg-image,
-        .toss-card.active .card-bg-video {
-            opacity: 0;
-            transform: scale(1.05);
-        }
-
-        .toss-card.active .card-details {
-            max-height: 1000px;
-            opacity: 1;
-            margin-top: 30px;
-        }
-
-        .toss-card.active .toggle-icon {
-            margin-top: 30px;
-            background-color: rgba(0, 0, 0, 0.08);
-            color: #191f28;
-            border-color: transparent;
-            text-shadow: none;
-        }
-
-        .toss-card.active .toggle-icon .text-open {
-            display: none;
-        }
-
-        .toss-card.active .toggle-icon .text-close {
-            display: inline;
-        }
-
-        .toss-card.active .card-title,
-        .toss-card.active .card-subtitle {
-            color: #191f28;
-            text-shadow: none;
-        }
-
-        .card-full-width {
-            grid-column: 1 / -1;
-            height: 420px;
-        }
-
-        @media (max-width: 992px) {
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .toss-card {
-                height: 350px;
-                padding: 32px;
-            }
-
-            .card-full-width,
-            .toss-card.active {
-                height: auto;
-            }
-
-            .card-title {
-                font-size: 26px;
-            }
-        }
+        .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; }
+        .toss-card { background-color: #fff; border-radius: 20px; padding: 48px; height: 420px; position: relative; overflow: hidden; cursor: pointer; transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease; background-color: #F2F4F6; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+        .card-bg-image, .card-bg-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease-out, opacity 0.5s ease; z-index: 1; }
+        .toss-card:not(.active):hover .card-bg-image, .toss-card:not(.active):hover .card-bg-video { transform: scale(1.03); }
+        .card-has-media::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0) 70%); z-index: 2; opacity: 1; transition: opacity 0.5s ease; }
+        .toss-card.active.card-has-media::after { opacity: 0; }
+        .card-content { position: relative; z-index: 10; display: flex; flex-direction: column; height: 100%; }
+        .card-title { font-size: 32px; font-weight: 700; line-height: 1.4; color: #191f28; transition: color 0.5s ease, text-shadow 0.5s ease; }
+        .card-has-media .card-title { color: #ffffff; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 0 2px rgba(0,0,0,0.6); }
+        .card-subtitle { font-size: 18px; font-weight: 500; color: #5b6776; margin-top: 4px; transition: color 0.5s ease, text-shadow 0.5s ease; }
+        .card-has-media .card-subtitle { color: rgba(255, 255, 255, 0.95); text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8), 0 0 2px rgba(0,0,0,0.6); }
+        .toggle-icon { width: auto; height: 40px; border-radius: 20px; padding: 0 18px; background-color: rgba(0, 0, 0, 0.4); border: 1.5px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; transition: background-color 0.4s ease, border-color 0.4s ease; margin-top: auto; color: #fff; font-weight: 600; font-size: 14px; letter-spacing: -0.3px; align-self: flex-start; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); }
+        .toggle-icon .text-close { display: none; }
+        .card-details { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.5s; font-size: 16px; line-height: 1.7; color: #4e5968; }
+        .card-details p { margin-bottom: 1.5em; }
+        .card-details p:last-child { margin-bottom: 0; }
+        .card-details strong { color: #333d4b; }
+        .toss-card.active { height: auto; background-color: #ffffff; }
+        .toss-card.active .card-bg-image, .toss-card.active .card-bg-video { opacity: 0; transform: scale(1.05); }
+        .toss-card.active .card-details { max-height: 1000px; opacity: 1; margin-top: 30px; }
+        .toss-card.active .toggle-icon { margin-top: 30px; background-color: rgba(0, 0, 0, 0.08); color: #191f28; border-color: transparent; text-shadow: none; }
+        .toss-card.active .toggle-icon .text-open { display: none; }
+        .toss-card.active .toggle-icon .text-close { display: inline; }
+        .toss-card.active .card-title, .toss-card.active .card-subtitle { color: #191f28; text-shadow: none; }
+        .card-full-width { grid-column: 1 / -1; height: 420px; }
+        @media (max-width: 992px) { .card-grid { grid-template-columns: 1fr; } .toss-card { height: 350px; padding: 32px; } .card-full-width, .toss-card.active { height: auto; } .card-title { font-size: 26px; } }
 
         /* Section 4 Infographic Styles */
-        .process-container {
-            width: 100%;
-            background: #f8f9fa;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 20px 20px 50px #d6d7d9, -20px -20px 50px #ffffff;
-        }
-
-        .process-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            margin-top: 20px;
-        }
-
-        .process-step {
-            flex: 1;
-            text-align: center;
-            position: relative;
-            padding: 0 10px;
-            z-index: 2;
-        }
-
-        .process-icon-wrapper {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 25px;
-            background-color: rgb(0, 86, 179);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            border: 4px solid #f8f9fa;
-            box-shadow: 0 0 0 6px rgb(0, 86, 179);
-            transition: all 0.3s ease;
-        }
-
-        .process-step:hover .process-icon-wrapper {
-            background-color: #ffffff;
-            box-shadow: 0 0 0 6px #E8F0FE;
-        }
-
-        .process-icon-wrapper i {
-            font-size: 40px;
-            color: #ffffff;
-            transition: color 0.3s ease;
-        }
-
-        .process-step:hover .process-icon-wrapper i {
-            color: rgb(0, 86, 179);
-        }
-
-        .step-number {
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            background-color: rgb(0, 86, 179);
-            color: #fff;
-            font-size: 14px;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 3px solid #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            white-space: nowrap;
-        }
-
-        .process-title-text {
-            font-size: 18px;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .process-connector {
-            position: absolute;
-            top: 55px;
-            left: 10%;
-            right: 10%;
-            height: 4px;
-            background-color: #E8F0FE;
-            z-index: 1;
-        }
-
-        @media (max-width: 768px) {
-            .process-container {
-                padding: 40px 30px;
-            }
-
-            .process-wrapper {
-                flex-direction: column;
-                align-items: stretch;
-                margin-top: 0;
-            }
-
-            .process-step {
-                display: flex;
-                align-items: center;
-                text-align: left;
-                margin-bottom: 50px;
-                padding: 0;
-            }
-
-            .process-icon-wrapper {
-                width: 80px;
-                height: 80px;
-                margin: 0 25px 0 0;
-                flex-shrink: 0;
-            }
-
-            .process-icon-wrapper i {
-                font-size: 30px;
-            }
-
-            .step-number {
-                display: none;
-            }
-
-            .process-title-text::before {
-                content: attr(data-step);
-                display: inline-block;
-                color: rgb(0, 86, 179);
-                font-size: 14px;
-                font-weight: 700;
-                margin-right: 8px;
-            }
-
-            .process-title-text {
-                font-size: 16px;
-            }
-
-            .process-connector {
-                display: none;
-            }
-
-            .process-step:not(:last-child)::after {
-                content: '';
-                position: absolute;
-                left: 39px;
-                top: 90px;
-                bottom: -40px;
-                width: 0;
-                border-left: 2px dashed rgb(0, 86, 179);
-                opacity: 0.5;
-            }
-        }
+        .process-container { width: 100%; background: #f8f9fa; padding: 50px; border-radius: 30px; box-shadow: 20px 20px 50px #d6d7d9, -20px -20px 50px #ffffff; }
+        .process-wrapper { display: flex; justify-content: space-between; align-items: center; position: relative; margin-top: 20px; }
+        .process-step { flex: 1; text-align: center; position: relative; padding: 0 10px; z-index: 2; }
+        .process-icon-wrapper { width: 110px; height: 110px; margin: 0 auto 25px; background-color: rgb(0, 86, 179); border-radius: 50%; display: flex; justify-content: center; align-items: center; position: relative; border: 4px solid #f8f9fa; box-shadow: 0 0 0 6px rgb(0, 86, 179); transition: all 0.3s ease; }
+        .process-step:hover .process-icon-wrapper { background-color: #ffffff; box-shadow: 0 0 0 6px #E8F0FE; }
+        .process-icon-wrapper i { font-size: 40px; color: #ffffff; transition: color 0.3s ease; }
+        .process-step:hover .process-icon-wrapper i { color: rgb(0, 86, 179); }
+        .step-number { position: absolute; top: -5px; left: 50%; transform: translateX(-50%) translateY(-50%); background-color: rgb(0, 86, 179); color: #fff; font-size: 14px; font-weight: 700; padding: 5px 12px; border-radius: 20px; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); white-space: nowrap; }
+        .process-title-text { font-size: 18px; font-weight: 700; color: #333; }
+        .process-connector { position: absolute; top: 55px; left: 10%; right: 10%; height: 4px; background-color: #E8F0FE; z-index: 1; }
+        @media (max-width: 768px) { .process-container { padding: 40px 30px; } .process-wrapper { flex-direction: column; align-items: stretch; margin-top: 0; } .process-step { display: flex; align-items: center; text-align: left; margin-bottom: 50px; padding: 0; } .process-icon-wrapper { width: 80px; height: 80px; margin: 0 25px 0 0; flex-shrink: 0; } .process-icon-wrapper i { font-size: 30px; } .step-number { display: none; } .process-title-text::before { content: attr(data-step); display: inline-block; color: rgb(0, 86, 179); font-size: 14px; font-weight: 700; margin-right: 8px; } .process-title-text { font-size: 16px; } .process-connector { display: none; } .process-step:not(:last-child)::after { content: ''; position: absolute; left: 39px; top: 90px; bottom: -40px; width: 0; border-left: 2px dashed rgb(0, 86, 179); opacity: 0.5; } }
     </style>
 </head>
-
 <body class="bg-gray-50 text-gray-800">
 
     <!-- 섹션 최상단: 비디오 배경 -->
@@ -630,10 +219,8 @@
             Your browser does not support the video tag.
         </video>
         <div class="video-overlay"></div>
-        <div class="video-text-content max-w-7xl mx-auto h-full flex items-center"
-            style="padding-left: 5%; padding-right: 1.5rem;">
-            <h2 class="text-white text-6xl md:text-8xl font-bold opacity-90"
-                style="font-family: 'Open Sans', sans-serif; letter-spacing: 0.08em; text-shadow: 0 2px 8px rgba(0,0,0,0.5); transform: translateY(3%);">
+        <div class="video-text-content max-w-7xl mx-auto h-full flex items-center" style="padding-left: 5%; padding-right: 1.5rem;">
+            <h2 class="text-white text-6xl md:text-8xl font-bold opacity-90" style="font-family: 'Open Sans', sans-serif; letter-spacing: 0.08em; text-shadow: 0 2px 8px rgba(0,0,0,0.5); transform: translateY(3%);">
                 Recruit
             </h2>
         </div>
@@ -652,18 +239,12 @@
 
             <!-- Right-aligned Buttons -->
             <div class="ml-auto">
-                <a href="https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit?csn=VVdEU3JlUGl0UWJZZEl1UDFMU2dUdz09"
-                    target="_blank" rel="noopener noreferrer"
-                    class="hidden md:inline-block btn-custom text-white font-bold py-2 px-6 rounded-lg transition-transform transform hover:scale-105">
+                <a href="https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit?csn=VVdEU3JlUGl0UWJZZEl1UDFMU2dUdz09" target="_blank" rel="noopener noreferrer" class="hidden md:inline-block btn-custom text-white font-bold py-2 px-6 rounded-lg transition-transform transform hover:scale-105">
                     채용 공고 보기
                 </a>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
@@ -673,9 +254,7 @@
             <a href="#values" class="block py-2 text-gray-600 hover:text-blue-700 text-center">인재상</a>
             <a href="#roles" class="block py-2 text-gray-600 hover:text-blue-700 text-center">직무 소개</a>
             <a href="#process" class="block py-2 text-gray-600 hover:text-blue-700 text-center">채용 절차</a>
-            <a href="https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit?csn=VVdEU3JlUGl0UWJZZEl1UDFMU2dUdz09"
-                target="_blank" rel="noopener noreferrer"
-                class="block mt-4 btn-custom text-white text-center font-bold py-2 px-6 rounded-lg">채용 공고 보기</a>
+            <a href="https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit?csn=VVdEU3JlUGl0UWJZZEl1UDFMU2dUdz09" target="_blank" rel="noopener noreferrer" class="block mt-4 btn-custom text-white text-center font-bold py-2 px-6 rounded-lg">채용 공고 보기</a>
         </div>
     </header>
 
@@ -687,13 +266,11 @@
                 <div class="max-w-5xl mx-auto">
                     <div class="text-left mb-24">
                         <p class="text-blue-900 font-bold text-lg mb-4 fade-in-up">OUR PHILOSOPHY</p>
-                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-in-up"
-                            style="transition-delay: 100ms;">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-in-up" style="transition-delay: 100ms;">
                             경영 철학
                         </h2>
                         <p class="text-lg text-gray-600 leading-relaxed fade-in-up" style="transition-delay: 200ms;">
-                            청명기연환경은 지난 30여 년간 대한민국에서 가장 신뢰받는 환경 데이터 전문 기업 중 하나로 성장해왔습니다.<br>이제 우리는 그 성공에 안주하지 않고, 축적된
-                            데이터와 기술력을 바탕으로 고객의 가장 복잡한 문제를 해결하고<br>성공을 이끄는 '데이터 기반 통합 솔루션 기업'으로의 위대한 도약을 시작합니다.
+                            청명기연환경은 지난 30여 년간 대한민국에서 가장 신뢰받는 환경 데이터 전문 기업 중 하나로 성장해왔습니다.<br>이제 우리는 그 성공에 안주하지 않고, 축적된 데이터와 기술력을 바탕으로 고객의 가장 복잡한 문제를 해결하고<br>성공을 이끄는 '데이터 기반 통합 솔루션 기업'으로의 위대한 도약을 시작합니다.
                         </p>
                     </div>
                     <div class="cards-section1 fade-in-up" style="transition-delay: 300ms;">
@@ -705,13 +282,12 @@
                         <!-- Mission -->
                         <div class="card">
                             <p class="tip">Our <span class="highlight-brown">Mission</span></p>
-                            <p class="second-text">30년 이상의 압도적인 인프라와 전문성을 바탕으로, 고객이 마주하는 가장 복잡한 환경 문제를 해결하고, 가장 확실한 데이터
-                                기반의 의사결정을 돕는다.</p>
+                            <p class="second-text">30년 이상의 압도적인 인프라와 전문성을 바탕으로, 고객이 마주하는 가장 복잡한 환경 문제를 해결하고, 가장 확실한 데이터 기반의 의사결정을 돕는다.</p>
                         </div>
                         <!-- Slogan -->
                         <div class="card">
-                            <p class="tip">Our <span class="highlight-red">Slogan</span></p>
-                            <p class="second-text" style="font-size: 1.075em;">"데이터로 확신을,<br>솔루션으로 성공을."</p>
+                           <p class="tip">Our <span class="highlight-red">Slogan</span></p>
+                           <p class="second-text" style="font-size: 1.075em;">"데이터로 확신을,<br>솔루션으로 성공을."</p>
                         </div>
                     </div>
                 </div>
@@ -724,109 +300,90 @@
                 <div class="max-w-5xl mx-auto">
                     <div class="text-left mb-16">
                         <p class="text-blue-900 font-bold text-lg mb-4 fade-in-up">OUR CORE VALUES</p>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 fade-in-up"
-                            style="transition-delay: 100ms;">인재상: 4대 핵심가치</h2>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 fade-in-up" style="transition-delay: 100ms;">인재상: 4대 핵심가치</h2>
                         <p class="text-lg text-gray-600 fade-in-up" style="transition-delay: 200ms;">
                             청명기연환경의 가장 위대한 자산은 사람입니다. 우리는 다음과 같은 가치를 지닌 동료들과 함께 성장하고 싶습니다.
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-5xl mx-auto">
                     <!-- 책임 (Responsibility) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                         <div class="text-center">
                             <h3 class="value-card-title">책임</h3>
                             <p class="value-card-subtitle">Responsibility</p>
                         </div>
                         <div class="value-card-details">
-                            <p class="value-card-description">'내 일'이라는 주인의식을 가지고 끝까지 완수하는 동료를 찾습니다. 결과에 대해 온전히 책임지는 태도는
-                                청명기연환경 전문가의 가장 중요한 덕목입니다.</p>
+                            <p class="value-card-description">'내 일'이라는 주인의식을 가지고 끝까지 완수하는 동료를 찾습니다. 결과에 대해 온전히 책임지는 태도는 청명기연환경 전문가의 가장 중요한 덕목입니다.</p>
                         </div>
                     </div>
                     <!-- 신뢰 (Trust) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                         <div class="text-center">
                             <h3 class="value-card-title">신뢰</h3>
                             <p class="value-card-subtitle">Trust</p>
                         </div>
                         <div class="value-card-details">
-                            <p class="value-card-description">투명하게 소통하고 적극적으로 협력하여 공동의 목표를 달성합니다. 성실한 태도를 바탕으로 실력과 인품을
-                                증명하며 함께 일하고 싶은 동료가 되어주세요.</p>
+                            <p class="value-card-description">투명하게 소통하고 적극적으로 협력하여 공동의 목표를 달성합니다. 성실한 태도를 바탕으로 실력과 인품을 증명하며 함께 일하고 싶은 동료가 되어주세요.</p>
                         </div>
                     </div>
                     <!-- 혁신 (Innovation) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                         <div class="text-center">
                             <h3 class="value-card-title">혁신</h3>
                             <p class="value-card-subtitle">Innovation</p>
                         </div>
                         <div class="value-card-details">
-                            <p class="value-card-description">기존 방식에 안주하지 않고, '왜?'라는 질문을 통해 더 나은 방법을 찾아냅니다. 데이터를 통해 새로운
-                                가치를 창출하는 모든 혁신적인 시도를 존중하고 지원합니다.</p>
+                            <p class="value-card-description">기존 방식에 안주하지 않고, '왜?'라는 질문을 통해 더 나은 방법을 찾아냅니다. 데이터를 통해 새로운 가치를 창출하는 모든 혁신적인 시도를 존중하고 지원합니다.</p>
                         </div>
                     </div>
                     <!-- 성장 (Growth) -->
                     <div class="value-card">
-                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg class="value-card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                         <div class="text-center">
                             <h3 class="value-card-title">성장</h3>
                             <p class="value-card-subtitle">Growth</p>
                         </div>
                         <div class="value-card-details">
-                            <p class="value-card-description">최고의 전문가가 되겠다는 열정으로 끊임없이 배우고 발전하는 동료를 찾습니다. 개인의 성장이 곧 회사의
-                                성장이라는 믿음 아래 아낌없이 지원합니다.</p>
+                            <p class="value-card-description">최고의 전문가가 되겠다는 열정으로 끊임없이 배우고 발전하는 동료를 찾습니다. 개인의 성장이 곧 회사의 성장이라는 믿음 아래 아낌없이 지원합니다.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Section 3: 주요 직무 및 성장 기회 (Key Roles & Opportunities) -->
         <section id="roles" class="py-20 md:py-28 bg-white">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <p class="text-blue-900 font-bold text-lg mb-4 fade-in-up">KEY ROLES & OPPORTUNITIES</p>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 fade-in-up"
-                        style="transition-delay: 100ms;">주요 직무 및 성장 기회</h2>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 fade-in-up" style="transition-delay: 100ms;">주요 직무 및 성장 기회</h2>
                     <p class="max-w-3xl mx-auto text-lg text-gray-600 fade-in-up" style="transition-delay: 200ms;">
                         청명기연환경은 다양한 분야의 전문가들이 모여 시너지를 창출하는 곳입니다. 당신의 전문성을 발휘하고 함께 성장할 수 있는 길을 찾아보세요.
                     </p>
                 </div>
-
+                
                 <div class="card-grid">
                     <!-- 좌측상단: 측정사업부 -->
                     <div class="toss-card card-has-media" onclick="toggleCard(this)">
-                        <img src="https://i.imgur.com/HsjnqPO.jpeg"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x500/e2e8f0/475569?text=Image+Not+Found';"
-                            alt="현장 시료 채취" class="card-bg-image">
+                        <img src="https://i.imgur.com/HsjnqPO.jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x500/e2e8f0/475569?text=Image+Not+Found';" alt="현장 시료 채취" class="card-bg-image">
                         <div class="card-content">
                             <h2 class="card-title">측정사업부</h2>
                             <div class="card-details">
-                                <p><strong>하는 일:</strong> 대한민국 환경 데이터의 최전선을 책임집니다. 전국 각지의 다양한 산업 현장에서, 5대 환경 분야(수질, 대기,
-                                    소음진동, 악취, 해양)의 시료를 채취하고 현장 데이터를 측정합니다. 35년의 노하우를 바탕으로, 가장 정확하고 신뢰도 높은 기초 데이터를 확보하는
-                                    핵심적인 역할을 수행합니다.</p>
-                                <p><strong>성장 기회:</strong> 어떤 변수에도 대처할 수 있는 압도적인 현장 경험과 노하우를 갖춘, 대한민국 최고의 현장 측정 전문가로 성장할
-                                    수 있습니다.</p>
+                                <p><strong>하는 일:</strong> 대한민국 환경 데이터의 최전선을 책임집니다. 전국 각지의 다양한 산업 현장에서, 5대 환경 분야(수질, 대기, 소음진동, 악취, 해양)의 시료를 채취하고 현장 데이터를 측정합니다. 35년의 노하우를 바탕으로, 가장 정확하고 신뢰도 높은 기초 데이터를 확보하는 핵심적인 역할을 수행합니다.</p>
+                                <p><strong>성장 기회:</strong> 어떤 변수에도 대처할 수 있는 압도적인 현장 경험과 노하우를 갖춘, 대한민국 최고의 현장 측정 전문가로 성장할 수 있습니다.</p>
                             </div>
                             <div class="toggle-icon">
                                 <span class="text-open">Click</span>
@@ -837,16 +394,12 @@
 
                     <!-- 우측상단: 시험분석부 -->
                     <div class="toss-card card-has-media" onclick="toggleCard(this)">
-                        <img src="https://i.imgur.com/Ew7cJGE.jpeg"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x500/e0f0ff/475569?text=Image+Not+Found';"
-                            alt="최신 정밀 분석 장비" class="card-bg-image">
+                        <img src="https://i.imgur.com/Ew7cJGE.jpeg" onerror="this.onerror=null;this.src='https://placehold.co/600x500/e0f0ff/475569?text=Image+Not+Found';" alt="최신 정밀 분석 장비" class="card-bg-image">
                         <div class="card-content">
                             <h2 class="card-title">시험분석부</h2>
                             <div class="card-details">
-                                <p><strong>하는 일:</strong> 단독 사옥의 'Smart Lab'에서 최신 정밀 분석 장비를 활용하여, 현장에서 확보된 시료를 최종 데이터로
-                                    완성합니다. 국제숙련도 최우수 기관으로서, 데이터의 정확성과 신뢰도를 책임지는 역할을 수행합니다.</p>
-                                <p><strong>성장 기회:</strong> ICP-MS, GC-MS 등 최첨단 분석 장비에 대한 깊이 있는 지식과 데이터 분석 능력을 갖춘, 최고의
-                                    시험분석 전문가로 성장할 수 있습니다.</p>
+                                <p><strong>하는 일:</strong> 단독 사옥의 'Smart Lab'에서 최신 정밀 분석 장비를 활용하여, 현장에서 확보된 시료를 최종 데이터로 완성합니다. 국제숙련도 최우수 기관으로서, 데이터의 정확성과 신뢰도를 책임지는 역할을 수행합니다.</p>
+                                <p><strong>성장 기회:</strong> ICP-MS, GC-MS 등 최첨단 분석 장비에 대한 깊이 있는 지식과 데이터 분석 능력을 갖춘, 최고의 시험분석 전문가로 성장할 수 있습니다.</p>
                             </div>
                             <div class="toggle-icon">
                                 <span class="text-open">Click</span>
@@ -857,16 +410,12 @@
 
                     <!-- 좌측하단: 품질문서관리부 -->
                     <div class="toss-card card-has-media" onclick="toggleCard(this)">
-                        <img src="https://i.imgur.com/SYdm38H.jpeg"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x500/e2e8f0/475569?text=Image+Not+Found';"
-                            alt="품질 및 문서 관리" class="card-bg-image">
+                        <img src="https://i.imgur.com/A8YyCRB.png" onerror="this.onerror=null;this.src='https://placehold.co/600x500/e2e8f0/475569?text=Image+Not+Found';" alt="품질 및 문서 관리" class="card-bg-image">
                         <div class="card-content">
                             <h2 class="card-title">품질문서관리부</h2>
                             <div class="card-details">
-                                <p><strong>하는 일:</strong> 우리가 생산하는 모든 데이터와 보고서의 품질을 최종적으로 보증하는 수문장 역할을 합니다. 엄격한 품질 관리
-                                    시스템을 통해, 모든 결과물이 법적 기준과 고객의 기대를 완벽하게 충족하도록 관리하고 감독합니다.</p>
-                                <p><strong>성장 기회:</strong> 환경 분야의 품질경영 및 문서관리 시스템에 대한 깊이 있는 이해를 갖춘, 신뢰도 높은 품질 관리 전문가로
-                                    성장할 수 있습니다.</p>
+                                <p><strong>하는 일:</strong> 우리가 생산하는 모든 데이터와 보고서의 품질을 최종적으로 보증하는 수문장 역할을 합니다. 엄격한 품질 관리 시스템을 통해, 모든 결과물이 법적 기준과 고객의 기대를 완벽하게 충족하도록 관리하고 감독합니다.</p>
+                                <p><strong>성장 기회:</strong> 환경 분야의 품질경영 및 문서관리 시스템에 대한 깊이 있는 이해를 갖춘, 신뢰도 높은 품질 관리 전문가로 성장할 수 있습니다.</p>
                             </div>
                             <div class="toggle-icon">
                                 <span class="text-open">Click</span>
@@ -875,18 +424,14 @@
                         </div>
                     </div>
 
-                    <!-- 우측하단: 총무부 -->
+                    <!-- 우측하단: 경영지원부 -->
                     <div class="toss-card card-has-media" onclick="toggleCard(this)">
-                        <img src="https://i.imgur.com/VKbIicE.jpeg"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x500/e0f0ff/475569?text=Image+Not+Found';"
-                            alt="협업하는 동료들" class="card-bg-image">
+                        <img src="https://i.imgur.com/vEnDKfE.png" onerror="this.onerror=null;this.src='https://placehold.co/600x500/e0f0ff/475569?text=Image+Not+Found';" alt="협업하는 동료들" class="card-bg-image">
                         <div class="card-content">
-                            <h2 class="card-title">총무부</h2>
+                            <h2 class="card-title">경영지원부</h2>
                             <div class="card-details">
-                                <p><strong>하는 일:</strong> 회사의 모든 구성원들이 자신의 업무에 집중하고 최고의 성과를 낼 수 있도록 지원하는 든든한 심장부 역할을
-                                    합니다. 인사, 총무, 재무 등 회사의 살림을 책임지며, 회사의 지속 가능한 성장을 위한 전략을 수립하고 실행합니다.</p>
-                                <p><strong>성장 기회:</strong> 회사의 전체적인 운영을 꿰뚫어 보는 시야와 경영 관리 능력을 갖춘 경영 관리 전문가로 성장할 수 있습니다.
-                                </p>
+                                <p><strong>하는 일:</strong> 회사의 모든 구성원들이 자신의 업무에 집중하고 최고의 성과를 낼 수 있도록 지원하는 든든한 심장부 역할을 합니다. 인사, 총무, 재무 등 회사의 살림을 책임지며, 회사의 지속 가능한 성장을 위한 전략을 수립하고 실행합니다.</p>
+                                <p><strong>성장 기회:</strong> 회사의 전체적인 운영을 꿰뚫어 보는 시야와 경영 관리 능력을 갖춘 경영 관리 전문가로 성장할 수 있습니다.</p>
                             </div>
                             <div class="toggle-icon">
                                 <span class="text-open">Click</span>
@@ -897,17 +442,13 @@
 
                     <!-- 최하단: 연구지원솔루션부 -->
                     <div class="toss-card card-full-width card-has-media" onclick="toggleCard(this)">
-                        <video class="card-bg-video" src="https://i.imgur.com/Ka2WLjU.mp4" autoplay loop muted
-                            playsinline></video>
+                        <video class="card-bg-video" src="https://i.imgur.com/Ka2WLjU.mp4" autoplay loop muted playsinline></video>
                         <div class="card-content">
                             <h2 class="card-title">연구지원솔루션부</h2>
                             <p class="card-subtitle">(Research Support Solution Division)</p>
                             <div class="card-details">
-                                <p><strong>하는 일:</strong> '연구지원솔루션(RSS)'의 핵심 브레인 역할을 합니다. 연구 프로젝트의 기획부터 실행, 관리까지 전 과정을
-                                    총괄하는 프로젝트 매니저(PM)로서, 고객의 아이디어가 성공적인 결과물로 완성되도록 청명기연환경의 모든 인프라와 네트워크를 조율하고 이끌어갑니다.
-                                </p>
-                                <p><strong>성장 기회:</strong> 복합적인 문제 해결 능력, 탁월한 커뮤니케이션 스킬, 그리고 비즈니스 전체를 보는 시야를 갖춘 대체 불가능한
-                                    솔루션 전문가로 성장할 수 있습니다.</p>
+                                <p><strong>하는 일:</strong> '연구지원솔루션(RSS)'의 핵심 브레인 역할을 합니다. 연구 프로젝트의 기획부터 실행, 관리까지 전 과정을 총괄하는 프로젝트 매니저(PM)로서, 고객의 아이디어가 성공적인 결과물로 완성되도록 청명기연환경의 모든 인프라와 네트워크를 조율하고 이끌어갑니다.</p>
+                                <p><strong>성장 기회:</strong> 복합적인 문제 해결 능력, 탁월한 커뮤니케이션 스킬, 그리고 비즈니스 전체를 보는 시야를 갖춘 대체 불가능한 솔루션 전문가로 성장할 수 있습니다.</p>
                             </div>
                             <div class="toggle-icon">
                                 <span class="text-open">Click</span>
@@ -918,19 +459,18 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- Section 4: 채용 절차 및 지원 방법 (Hiring Process) -->
         <section id="process" class="py-20 md:py-28">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="max-w-5xl mx-auto text-left mb-16">
                     <p class="text-blue-900 font-bold text-lg mb-4 fade-in-up">HIRING PROCESS</p>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 fade-in-up"
-                        style="transition-delay: 100ms;">채용 절차</h2>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 fade-in-up" style="transition-delay: 100ms;">채용 절차</h2>
                     <p class="text-lg text-gray-600 fade-in-up" style="transition-delay: 200ms;">
                         당신의 소중한 지원을 기다립니다. 모든 전형 결과는 합격 여부와 관계없이 개별적으로 안내해 드립니다.
                     </p>
                 </div>
-
+                
                 <div class="max-w-5xl mx-auto fade-in-up mt-16" style="transition-delay: 300ms;">
                     <div class="process-container">
                         <div class="process-wrapper">
@@ -969,9 +509,7 @@
 
                 <div id="apply" class="text-center mt-20 fade-in-up" style="transition-delay: 400ms;">
                     <p class="text-gray-600 mb-4">채용 공고는 주요 채용 포털 사이트를 통해 확인하고 지원하실 수 있습니다.</p>
-                    <a href="https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit?csn=VVdEU3JlUGl0UWJZZEl1UDFMU2dUdz09"
-                        target="_blank" rel="noopener noreferrer"
-                        class="btn-custom text-white font-bold text-lg py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 inline-block shadow-xl hover:shadow-2xl">
+                    <a href="https://www.saramin.co.kr/zf_user/company-info/view-inner-recruit?csn=VVdEU3JlUGl0UWJZZEl1UDFMU2dUdz09" target="_blank" rel="noopener noreferrer" class="btn-custom text-white font-bold text-lg py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 inline-block shadow-xl hover:shadow-2xl">
                         현재 진행중인 채용 공고 보기
                     </a>
                 </div>
@@ -1015,7 +553,7 @@
             threshold: 0.1,
             rootMargin: "0px 0px -50px 0px"
         };
-        const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
                     return;
@@ -1032,5 +570,5 @@
     </script>
 
 </body>
-
 </html>
+
